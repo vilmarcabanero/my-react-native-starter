@@ -1,0 +1,21 @@
+
+import { fromJS } from 'immutable';
+import reducer, {
+  defaultReducer,
+} from '../reducer';
+
+describe('{{ camelCase name }}Reducer', () => {
+  const INITIAL_STATE = fromJS({
+    status: true,
+  });
+
+  it('returns the initial state', () => {
+    expect(reducer(undefined, {})).toEqual(fromJS({ status: true }));
+  });
+
+  it('defaultReducer', () => {
+    expect(defaultReducer(INITIAL_STATE, { status: false })).toEqual(INITIAL_STATE.merge({
+      status: false,
+    }));
+  });
+});
